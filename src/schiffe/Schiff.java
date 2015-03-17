@@ -5,7 +5,6 @@ public class Schiff {
 	protected int length;
 	protected int count;
 	protected int score;
-	protected int width = 1;
 	protected int hits = 0;
 	protected int x;
 	protected int y;
