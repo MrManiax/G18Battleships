@@ -1,6 +1,7 @@
 package schiffe;
 
 public class Kreuzer extends Schiff {
+	
 	public Kreuzer() {
 		this.name = "Kreuzer";
 		this.length = 3;

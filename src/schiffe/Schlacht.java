@@ -1,6 +1,7 @@
 package schiffe;
 
 public class Schlacht extends Schiff {
+	
 	public Schlacht() {
 		this.name = "Schlachtschiff";
 		this.length = 4;

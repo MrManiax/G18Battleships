@@ -1,7 +1,7 @@
 package schiffe;
 
 public class FlugTr extends Schiff {
-	
+
 	public FlugTr() {
 		this.name = "Flugzeugtraeger";
 		this.length = 5;
@@ -9,5 +9,5 @@ public class FlugTr extends Schiff {
 		this.count = 1;
 		this.score = 50;
 	}
-	
+
 }

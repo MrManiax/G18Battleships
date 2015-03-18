@@ -1,7 +1,6 @@
 package mainLoop;
-import gameLogic.grid;
-import schiffe.Schiff;
 
+import gameLogic.grid;
 
 public class main {
 
@@ -13,4 +12,3 @@ public class main {
 		arena.drawGrid();
 	}
 }
-

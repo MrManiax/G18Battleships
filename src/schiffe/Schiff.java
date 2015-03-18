@@ -10,38 +10,48 @@ public class Schiff {
 	protected int x;
 	protected int y;
 	protected boolean waage;
-	
-	public String getName() {
-		return name;
+
+	public void addHit() {
+		this.hits++;
 	}
-	public int getLength() {
-		return length;
-	}
+
 	public int getCount() {
 		return count;
 	}
-	public int getScore() {
-		return score;
-	}
-	public int getWidth() {
-		return width;
-	}
+
 	public int getHits() {
 		return hits;
 	}
+
+	public int getLength() {
+		return length;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getScore() {
+		return score;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
 	public int getX() {
 		return x;
 	}
-	public void setX(int x) {
-		this.x = x;
-	}
+
 	public int getY() {
 		return y;
 	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
 	public void setY(int y) {
 		this.y = y;
-	}
-	public void addHit() {
-		this.hits++;
 	}
 }

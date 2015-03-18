@@ -2,8 +2,8 @@ package gameLogic;
 
 public class field {
 	private char type;
-	
-	public field (char type) {
+
+	public field(char type) {
 		this.type = type;
 	}
 
