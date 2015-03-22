@@ -54,4 +54,12 @@ public class Schiff {
 	public void setY(int y) {
 		this.y = y;
 	}
+	
+	public void setWaage(boolean b) {
+		this.waage = b;
+	}
+	
+	public boolean getWaage() {
+		return this.waage;
+	}
 }
