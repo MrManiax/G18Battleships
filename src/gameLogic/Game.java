@@ -1,36 +1,46 @@
 package gameLogic;
 
-import java.awt.Point;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
-import mainLoop.View;
+import java.util.ArrayList;
+import java.util.List;
+import schiffe.Schiff;
 
 public class Game {
-	public grid arena;
+	public grid grid;
+	private boolean exit;
+	private boolean won;
+	private List<Schiff> schiffe = new ArrayList<Schiff>();
 	
 	public Game(){
-		arena = new grid();
-		View view = new View(arena);
+		this.exit = false;
+		this.won = false;
+		this.grid = new grid();
+		
+		this.schiffe.add(new schiffe.Uboot());
+		this.grid.addShip(this.schiffe.get(0));
+		this.schiffe.add(new schiffe.Uboot());
+		this.grid.addShip(this.schiffe.get(1));
+		this.schiffe.add(new schiffe.Uboot());
+		this.grid.addShip(this.schiffe.get(2));
+		this.schiffe.add(new schiffe.Uboot());
+		this.grid.addShip(this.schiffe.get(3));
+		this.schiffe.add(new schiffe.Schlacht());
+		this.grid.addShip(this.schiffe.get(4));
+		this.schiffe.add(new schiffe.Schlacht());
+		this.grid.addShip(this.schiffe.get(5));
+		this.schiffe.add(new schiffe.Kreuzer());
+		this.grid.addShip(this.schiffe.get(6));
+		this.schiffe.add(new schiffe.Kreuzer());
+		this.grid.addShip(this.schiffe.get(7));
+		this.schiffe.add(new schiffe.FlugTr());
+		this.grid.addShip(this.schiffe.get(8));
+		
+		grid.drawGrid();
+
+			
+		
+	}
 	
-		schiffe.Uboot uboot1 = new schiffe.Uboot();
-		arena.addShip(uboot1);
-		schiffe.Uboot uboot2 = new schiffe.Uboot();
-		arena.addShip(uboot2);
-		schiffe.Uboot uboot3 = new schiffe.Uboot();
-		arena.addShip(uboot3);
-		schiffe.Uboot uboot4 = new schiffe.Uboot();
-		arena.addShip(uboot4);
-		schiffe.Schlacht schlacht1 = new schiffe.Schlacht();
-		arena.addShip(schlacht1);
-		schiffe.Schlacht schlacht2 = new schiffe.Schlacht();
-		arena.addShip(schlacht2);
-		schiffe.Kreuzer kreuzer1 = new schiffe.Kreuzer();
-		arena.addShip(kreuzer1);
-		schiffe.Kreuzer kreuzer2 = new schiffe.Kreuzer();
-		arena.addShip(kreuzer2);
-		schiffe.FlugTr flugTr1 = new schiffe.FlugTr();
-		arena.addShip(flugTr1);
-		arena.drawGrid();
+	public boolean getExit() {
+		return this.exit;
 	}
 }

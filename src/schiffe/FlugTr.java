@@ -3,6 +3,7 @@ package schiffe;
 public class FlugTr extends Schiff {
 
 	public FlugTr() {
+		this.alive = true;
 		this.name = "Flugzeugtraeger";
 		this.length = 5;
 		this.width = 1;

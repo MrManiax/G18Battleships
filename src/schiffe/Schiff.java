@@ -6,13 +6,21 @@ public class Schiff {
 	protected int count;
 	protected int score;
 	protected int width;
-	protected int hits = 0;
+	protected int hits;
 	protected int x;
 	protected int y;
 	protected boolean waage;
+	protected boolean alive;
 
-	public void addHit() {
+	public int addHit() {
 		this.hits++;
+		if (this.length == this.hits) {
+			this.alive = false;
+			return this.score;
+		}
+		else {
+			return 0;
+		}
 	}
 
 	public int getCount() {
@@ -61,5 +69,9 @@ public class Schiff {
 	
 	public boolean getWaage() {
 		return this.waage;
+	}
+	
+	public boolean getAlive() {
+		return this.alive;
 	}
 }

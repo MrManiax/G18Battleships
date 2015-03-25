@@ -3,6 +3,7 @@ package schiffe;
 public class Uboot extends Schiff {
 	
 	public Uboot() {
+		this.alive = true;
 		this.name = "U-Boot";
 		this.length = 2;
 		this.width = 1;

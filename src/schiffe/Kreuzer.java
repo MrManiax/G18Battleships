@@ -3,6 +3,7 @@ package schiffe;
 public class Kreuzer extends Schiff {
 	
 	public Kreuzer() {
+		this.alive = true;
 		this.name = "Kreuzer";
 		this.length = 3;
 		this.width = 1;

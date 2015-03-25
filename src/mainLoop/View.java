@@ -20,8 +20,12 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 public class View {
-
-    public View(final grid grid) {
+	public JFrame frame;
+	public Panel panel;
+	public Game game;
+	public String title;
+    public View() {
+    	game = new Game();
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -29,11 +33,12 @@ public class View {
                     UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
                 } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
                 }
-
-                JFrame frame = new JFrame("Testing");
+                
+                frame = new JFrame(title);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setLayout(new BorderLayout());
-                frame.add(new Panel(grid));
+                panel = new Panel(game.grid);
+                frame.add(panel);
                 frame.pack();
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
@@ -49,6 +54,7 @@ public class View {
         private grid grid;
 
         public Panel(grid grid) {
+        	
         	this.grid = grid;
         	columnCount = this.grid.getColCount();
         	rowCount = this.grid.getRowCount();
@@ -75,7 +81,31 @@ public class View {
             addMouseListener(mouseHandler);
         }
 
-        @Override
+        public Point getSelectedField() {
+			return selectedField;
+		}
+
+		public void setSelectedField(Point selectedField) {
+			this.selectedField = selectedField;
+		}
+
+		public int getColumnCount() {
+			return columnCount;
+		}
+
+		public void setColumnCount(int columnCount) {
+			this.columnCount = columnCount;
+		}
+
+		public int getRowCount() {
+			return rowCount;
+		}
+
+		public void setRowCount(int rowCount) {
+			this.rowCount = rowCount;
+		}
+
+		@Override
         public Dimension getPreferredSize() {
             return new Dimension(200, 200);
         }
@@ -145,7 +175,9 @@ public class View {
             
             if (selectedField != null) {
 
-                this.grid.grid[selectedField.y][selectedField.x].detectHit();
+                this.grid.hitField(selectedField.y, selectedField.x);
+                title = "Score: " + game.grid.getScore();
+                frame.setTitle(title);
                 repaint();
             }
 

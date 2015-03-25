@@ -6,8 +6,10 @@ public class grid{
 	public field[][] grid = new field[10][10];
 	private int colCount = 10;
 	private int rowCount = 10;
+	private int score;
 
 	public grid() {
+		this.score = 0;
 		
 		for (int i = 0; i < colCount; i++) {
 			for (int j = 0; j < rowCount; j++) {
@@ -17,6 +19,14 @@ public class grid{
 		}
 	}
 	
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+
 	public int getColCount() {
 		return colCount;
 	}
@@ -47,6 +57,7 @@ public class grid{
 				schiff.setY(y);
 				for (int i = x; i < (x + schiff.getLength()); i++) {
 					this.grid[i][y].setType('s');
+					this.grid[i][y].addShip(schiff);
 				}
 				break;
 			
@@ -56,6 +67,7 @@ public class grid{
 				schiff.setY(y);
 				for (int i = y; i < (y + schiff.getLength()); i++) {
 					this.grid[x][i].setType('s');
+					this.grid[x][i].addShip(schiff);
 				}
 				break;
 			}
@@ -87,6 +99,10 @@ public class grid{
 			}
 		}
 		return true;
+	}
+	
+	public void hitField(int x, int y) {
+		this.score += grid[x][y].detectHit();
 	}
 	
 	

@@ -2,9 +2,12 @@ package gameLogic;
 
 import java.awt.geom.Rectangle2D;
 
+import schiffe.Schiff;
+
 public class field{
 	private char type;
 	public Rectangle2D rect;
+	private Schiff schiff;
 
 	public field(char type) {
 		
@@ -22,17 +25,23 @@ public class field{
 		this.type = type;
 	}
 	
-	public boolean detectHit() {
+	public void addShip(Schiff schiff) {
+		this.schiff = schiff;
+	}
+	
+	public int detectHit() {
+		int score = 0;
 		if (this.type == 's') {
 			this.setType('h');
-			return true;
+			score = schiff.addHit();
+			return score;
 		}
 		else if (this.type == 'e') {
 			this.setType('m');
-			return false;
+			return score;
 		}
 		else {
-			return false;
+			return score;
 		}
 	}
 }
