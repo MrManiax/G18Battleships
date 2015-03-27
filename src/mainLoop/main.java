@@ -8,6 +8,14 @@ public class main {
 	 */   
 	public static void main(String[] args) {
 		
-	View view = new View();
+		Game game = new Game();
+		
+		do {
+			game.runGame();
+			game.view.panel.repaint();
+		
+		} while (!game.isWon());
+		
+		game.view.frame.setTitle("Game Over!");
 	}
 }
